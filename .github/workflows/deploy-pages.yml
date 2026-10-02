@@ -2,7 +2,7 @@ name: Deploy Quartz Site to GitHub Pages
 
 on:
   push:
-    branches: ["v5"]  # <--- Важно: именно твоя ветка v5
+    branches: ["v5"]
 
 permissions:
   contents: write
@@ -26,15 +26,19 @@ jobs:
           node-version: "18"
           cache: "npm"
 
-      - name: Install and Build
-        run: |
-          npm ci
-          npm run build
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Quartz plugins
+        run: npx quartz plugin install
+
+      - name: Build site
+        run: npx quartz build -d public
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: ./public  # <--- Quartz обычно кладет сайт сюда. Если у тебя dist — поменяй.
+          path: ./public
 
   deploy:
     environment:

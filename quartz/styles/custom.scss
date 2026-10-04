@@ -1,3 +1,26 @@
-@use "./variables.scss" as *;
+@use "./variables.scss";
 
-// put your custom CSS here!
+/* =========================================
+   ЛОГОТИП И НАЗВАНИЕ САЙТА
+   ========================================= */
+
+.page-title a {
+  font-size: 0 !important;
+
+  display: block;
+  width: 150px;
+  height: 50px;
+
+  background-image: url("/Nash-Sled/static/logo.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: contain;
+}
+
+/* На мобильных устройствах */
+@media all and (max-width: 800px) {
+  .page-title a {
+    width: 130px;
+    height: 45px;
+  }
+}

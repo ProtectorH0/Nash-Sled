@@ -3,6 +3,7 @@ import { QuartzComponent, QuartzComponentConstructor } from "./types"
 const YandexMetrika: QuartzComponent = () => {
   return (
     <script
+      data-persist
       dangerouslySetInnerHTML={{
         __html: `
           (function(m,e,t,r,i,k,a){
@@ -25,6 +26,10 @@ const YandexMetrika: QuartzComponent = () => {
               clickmap: true,
               trackLinks: true,
               accurateTrackBounce: true
+          });
+
+          ym(113435485, 'hit', window.location.href, {
+              title: document.title
           });
 
           document.addEventListener('nav', function() {

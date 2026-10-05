@@ -27,7 +27,7 @@ const YandexMetrika: QuartzComponent = () => {
               accurateTrackBounce: true
           });
 
-          document.addEventListener('nav', function(event) {
+          document.addEventListener('nav', function() {
               if (typeof ym === 'function') {
                   ym(113435485, 'hit', window.location.href, {
                       title: document.title

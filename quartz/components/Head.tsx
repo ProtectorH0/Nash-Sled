@@ -3,6 +3,7 @@ import { FullSlug, getFileExtension, joinSegments, pathToRoot } from "../util/pa
 import { CSSResourceToStyleElement, JSResourceToScriptElement } from "../util/resources"
 import { googleFontHref, googleFontSubsetHref } from "../util/theme"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
+import YandexMetrika from "./YandexMetrika"
 import { unescapeHTML } from "../util/escape"
 
 export default (() => {
@@ -41,6 +42,8 @@ export default (() => {
 
     return (
       <head>
+        <YandexMetrika />
+
         <title>{title}</title>
         <meta charSet="utf-8" />
         {coreStylesheet && <link rel="preload" href={coreStylesheet} as="style" />}
